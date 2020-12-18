@@ -6,29 +6,10 @@ function generate_trashTalk(job) {
   }
   const phrase = ['很簡單', '很容易', '很快', '很正常']
   const phraseIndex = Math.floor(Math.random() * phrase.length)
-  let taskIndex = 0
-  let trashTalk = `身為一個${job}`
+  const taskIndex = Math.floor(Math.random() * task[job].length)
+  let trashTalk = ''
 
-  switch (job) {
-    case 'engineer':
-      taskIndex = Math.floor(Math.random() * task.engineer.length)
-      trashTalk +=
-        `${task.engineer[taskIndex]}，` + `${phrase[phraseIndex]}吧！`
-      break
-    case 'designer':
-      taskIndex = Math.floor(Math.random() * task.engineer.length)
-      trashTalk +=
-        `${task.designer[taskIndex]}，` + `${phrase[phraseIndex]}吧！`
-      break
-    case 'founder':
-      taskIndex = Math.floor(Math.random() * task.engineer.length)
-      trashTalk += `${task.founder[taskIndex]}，` + `${phrase[phraseIndex]}吧！`
-      break
-    default:
-      trashTalk = '選個職業很難嗎？'
-      break
-  }
-
+  trashTalk += `身為一個${job}${task[job][taskIndex]}，${phrase[phraseIndex]}吧！`
   return trashTalk
 }
 
@@ -38,18 +19,7 @@ function select_character(job) {
     designer: false,
     founder: false,
   }
-
-  switch (job) {
-    case 'engineer':
-      characters.engineer = true
-      break
-    case 'designer':
-      characters.designer = true
-      break
-    case 'founder':
-      characters.founder = true
-      break
-  }
+  characters[job] = true
   return characters
 }
 

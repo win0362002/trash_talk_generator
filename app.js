@@ -23,7 +23,13 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   const job = req.body.job
   const characters = select_character(job)
-  const trashTalk = generate_trashTalk(job)
+  let trashTalk = ''
+  if (job) {
+    trashTalk = generate_trashTalk(job)
+  } else {
+    trashTalk = '選個職業很難嗎？'
+  }
+
   res.render('index', { trashTalk, characters })
 })
 
