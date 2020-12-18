@@ -7,9 +7,8 @@ function generate_trashTalk(job) {
   const phrase = ['很簡單', '很容易', '很快', '很正常']
   const phraseIndex = Math.floor(Math.random() * phrase.length)
   const taskIndex = Math.floor(Math.random() * task[job].length)
-  let trashTalk = ''
+  const trashTalk = `身為一個${job}${task[job][taskIndex]}，${phrase[phraseIndex]}吧！`
 
-  trashTalk += `身為一個${job}${task[job][taskIndex]}，${phrase[phraseIndex]}吧！`
   return trashTalk
 }
 
