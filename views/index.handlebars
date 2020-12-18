@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <h1 class="text-center m-3 title">你想對誰說幹話？</h1>
+  <form method="POST" action="/">
+    <div class="worker-container d-flex justify-content-around mx-5">
+      <div class="engineer-container d-flex flex-column align-items-center">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg" alt="..."
+          class="img-thumbnail" style="width: 350px; height: 300px;">
+        <div>
+          <input type="radio" name="job" id="engineer" value="engineer" class="my-3"
+            {{#if characters.engineer}}checked{{/if}}>
+          <label for="engineer" style="font-size: 2em">工程師</label>
+        </div>
+      </div>
+      <div class="designer-container d-flex flex-column align-items-center">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg" alt="..."
+          class="img-thumbnail" style="width: 350px; height: 300px;">
+        <div>
+          <input type="radio" name="job" id="designer" value="designer" class="my-3"
+            {{#if characters.designer}}checked{{/if}}>
+          <label for="engineer" style="font-size: 2em">設計師</label>
+        </div>
+      </div>
+      <div class="founder-container d-flex flex-column align-items-center">
+        <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg" alt="..."
+          class="img-thumbnail" style="width: 350px; height: 300px;">
+        <div>
+          <input type="radio" name="job" id="founder" value="founder" class="my-3"
+            {{#if characters.founder}}checked{{/if}}>
+          <label for="engineer" style="font-size: 2em">創業家</label>
+        </div>
+      </div>
+    </div>
+    <div class="input-container d-flex justify-content-center m-3">
+      <button type="submit" class="btn btn-primary btn-lg mx-4" style="height: 60px;">產生幹話</button>
+      <div class="img-thumbnail" style="width: 800px; height: 150px;">
+        {{#if trashTalk}}
+        <h2 class="mx-2">{{trashTalk}}</h2>
+        {{/if}}
+      </div>
+    </div>
+  </form>
+</div>
