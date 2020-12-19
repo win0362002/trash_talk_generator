@@ -12,14 +12,4 @@ function generate_trashTalk(job) {
   return trashTalk
 }
 
-function select_character(job) {
-  const characters = {
-    engineer: false,
-    designer: false,
-    founder: false,
-  }
-  characters[job] = true
-  return characters
-}
-
-module.exports = { generate_trashTalk, select_character }
+module.exports = generate_trashTalk

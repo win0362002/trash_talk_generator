@@ -7,7 +7,7 @@
           class="img-thumbnail" style="width: 350px; height: 300px;">
         <div>
           <input type="radio" name="job" id="engineer" value="engineer" class="my-3"
-            {{#if characters.engineer}}checked{{/if}}>
+            {{#ifEquals job 'engineer'}}checked{{/ifEquals}}>
           <label for="engineer" style="font-size: 2em">工程師</label>
         </div>
       </div>
@@ -16,7 +16,7 @@
           class="img-thumbnail" style="width: 350px; height: 300px;">
         <div>
           <input type="radio" name="job" id="designer" value="designer" class="my-3"
-            {{#if characters.designer}}checked{{/if}}>
+            {{#ifEquals job 'designer'}}checked{{/ifEquals}}>
           <label for="engineer" style="font-size: 2em">設計師</label>
         </div>
       </div>
@@ -25,7 +25,7 @@
           class="img-thumbnail" style="width: 350px; height: 300px;">
         <div>
           <input type="radio" name="job" id="founder" value="founder" class="my-3"
-            {{#if characters.founder}}checked{{/if}}>
+            {{#ifEquals job 'founder'}}checked{{/ifEquals}}>
           <label for="engineer" style="font-size: 2em">創業家</label>
         </div>
       </div>

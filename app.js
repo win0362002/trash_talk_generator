@@ -1,12 +1,15 @@
 const express = require('express')
 const exphdbs = require('express-handlebars')
+const handlebars = require('handlebars')
 const bodyParser = require('body-parser')
-const {
-  generate_trashTalk,
-  select_character,
-} = require('./trash_talk_generator.js')
+const generate_trashTalk = require('./trash_talk_generator.js')
 const app = express()
 const port = 3000
+
+//Register handlebars helper
+handlebars.registerHelper('ifEquals', (job, targetJob, options) => {
+  return job === targetJob ? options.fn(this) : options.inverse(this)
+})
 
 //Set template engine
 app.engine('handlebars', exphdbs({ defaultLayout: 'main' }))
@@ -22,7 +25,7 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   const job = req.body.job
-  const characters = select_character(job)
+  //const characters = select_character(job)
   let trashTalk = ''
   if (job) {
     trashTalk = generate_trashTalk(job)
@@ -30,7 +33,7 @@ app.post('/', (req, res) => {
     trashTalk = '選個職業很難嗎？'
   }
 
-  res.render('index', { trashTalk, characters })
+  res.render('index', { trashTalk, job })
 })
 
 //Start and listen
